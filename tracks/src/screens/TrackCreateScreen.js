@@ -11,11 +11,7 @@ import useLocation from '../hooks/useLocation';
 const TrackCreateScreen = () => {
 
   const { addLocation } = useContext(LocationContext);
-  const [err] = useLocation((location) => addLocation(location));
-
-
-
-
+  const [err] = useLocation(addLocation);
 
   return (
     <SafeAreaView style={styles.container} forceInset={{ top: 'always' }}>
