@@ -1,5 +1,5 @@
 import createDataContext from "./createDataContext";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import trackerApi from '../api/tracker'
 
 const trackReducer = (state, action) => {
   switch (action.type) {
@@ -12,8 +12,8 @@ const fetchTracks = dispatch => () => {
 
 };
 
-const createTrack = dispatch => (location, name) => {
-  console.log(location, name);
+const createTrack = dispatch => async (name, location) => {
+  await trackerApi.post('/tracks', { name, location });
 };
 
 export const { Provider, Context } = createDataContext(
