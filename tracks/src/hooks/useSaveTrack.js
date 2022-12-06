@@ -5,7 +5,7 @@ import { navigate } from '../navigationRef'
 
 export default () => {
   const { createTrack } = useContext(TrackContext);
-  const { state: { name, location }, reset } = useContext(LocationContext);
+  const { state: { location, name }, reset } = useContext(LocationContext);
 
   const saveTrack = async () => {
     await createTrack(name, location);
